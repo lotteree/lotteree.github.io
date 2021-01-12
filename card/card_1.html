@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&family=East+Sea+Dokdo&family=Single+Day&family=Yeon+Sung&display=swap" rel="stylesheet"> 
+	<style>
+		html, body { margin:0; padding:0; height:100%; }
+		.sky { left:0; right:0; height:100%; 
+			background:url(./images/bg-type-top.png) no-repeat 0 0; background-size:cover;
+		}
+		.sea { left:0; right:0; bottom:0; height:20%; 
+			background:url(./images/bg-type-bottom.png) no-repeat 0 0; background-size:cover;
+		}
+		.sky:before,
+		.sea:before {
+			content:''; position:fixed; left:0; right:0; top:0; bottom:0; 
+			background-color:#000; 
+			animation:fadeOut 4.5s ease-in forwards 1s;
+			z-index:100; 
+		}		
+		.sun { left:50%; margin-left:-40px; top:90%; border-radius:40px; 
+			width:80px; height:80px; 
+			background: #FFFFFF;
+			box-shadow:0px 0px 30px #FEFFFF;
+			filter:blur(2px);
+			animation: keySun 5s cubic-bezier(.2,-0.55,.27,1) forwards 2s;
+		}
+		.pos { position:fixed; }
+		.pos.__lv1 { z-index:1; }
+		.pos.__lv2 { z-index:10; }
+		.pos.__lv3 { z-index:100; }
+		.pos.__lv4 { z-index:1000; }
+		.tt1 { font-family: 'Noto Sans KR', sans-serif; }
+		.tt2 { font-family: 'East Sea Dokdo', cursive; }
+		.tt3 { font-family: 'Single Day', sans-serif; }
+		.tt4 { font-family: 'Yeon Sung', sans-serif; }
+		.from.tt1,
+		.to.tt1 { font-size:20px; }
+		.from.tt2,
+		.to.tt2 { font-size:24px; }
+		.from.tt3,
+		.to.tt3 { font-size:20px; }
+		.from.tt4,
+		.to.tt4 { font-size:20px; }
+		.messeage.tt1 { font-size:24px; line-height:1.4; }
+		.messeage.tt2 { font-size:36px; line-height:1; }
+		.messeage.tt3 { font-size:24px; line-height:1.2; }
+		.messeage.tt4 { font-size:28px; line-height:1.2; }
+		.to { left:30px; top:50px; color:#fff; opacity:0; 
+			animation: keyTo 2s ease-out forwards 7s;
+		}
+		.to:before { content:'to. '; }
+		.from { right:30px; bottom:40px; color:#fff; opacity:0; 
+			animation: keyFrom 2s ease-out forwards 8.5s;
+		}
+		.from:before { content:'from. '; }
+		.messeage { left:30px; top:90px; color:#fff; opacity:0; 
+			animation: keyTo 2s ease-out forwards 8s;
+		}
+		.logo { right: 0; bottom:15px; opacity: 0;
+			animation: keyLogo 4s cubic-bezier(.68,-0.55,.27,1) forwards 8s;
+		}
+		@keyframes keySun {
+			0% { 
+				transform: scale(.8);
+			}
+			100% { 
+				transform: scale(1);
+				top: 60%;
+			}		
+		}
+		@keyframes sunset { 
+			0% {
+				opacity: 0;
+			}
+			100% { 
+				top: 80%;
+				transform: scale(2);
+				filter: blur(20px);
+				opacity: 1; 
+			}	
+		}
+		@keyframes fadeOut {
+			100% {
+				opacity: 0;
+			}
+		}
+		@keyframes keyTo {
+			0% {
+				filter: blur(5px);
+				transform: translateX(-10px);
+			}
+			100% {
+				filter: blur(0);
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		@keyframes keyFrom {
+			0% {
+				filter: blur(5px);
+				transform: translateX(10px);
+			}
+			100% {
+				filter: blur(0);
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+		@keyframes keyLogo {
+			0% {
+				filter: blur(5px);
+			}
+			100% {
+				filter: blur(0);
+				right: 30px;
+				opacity: 1;
+			}
+		}
+	</style>
+	<script>
+		let comments = [
+			"2021년 신축년에도<br>엘포인트와 함께하소!",
+			"음메~ 2021 신축년<br>새해 복 많이 받으이소!",
+			"새해 복 많이 받으시고<br>모두 포인트 부자되세요!",
+		]
+		window.onload=function(){
+			let param = location.href.split(',');
+			let from = document.querySelector('.from');
+			let to = document.querySelector('.to');
+			let messeage = document.querySelector('.messeage');
+			let fontFamily = 'tt'+param[1];
+			from.classList.add(fontFamily);
+			to.classList.add(fontFamily);
+			messeage.classList.add(fontFamily);
+			from.textContent=decodeURIComponent(param[2]);
+			to.textContent=decodeURIComponent(param[3]);
+			messeage.innerHTML=comments[param[0].charAt(param[0].length-1)];
+		}
+	</script>
+</head>
+<body>
+	<div class="pos __lv1 sky"></div>
+	<div class="pos __lv3 sea"></div>
+	<div class="pos __lv2 sun"></div>
+	<div class="pos __lv4 logo"><img src="./images/logo-bi.png" height="16"></div>
+	<div class="pos __lv3 to">$to님</div>
+	<div class="pos __lv3 messeage">2021년에도 항상 행복한일만<br>가득하길 바랍니다.</div>
+	<div class="pos __lv4 from">$from</div>
+</body>
+</html>
