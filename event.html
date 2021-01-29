@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <title>Document</title>
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body { font-family: sans-serif; background-color: #F4EEE4; }
+    .event-content { padding: 40px 25px 120px; }
+    .event-content select,
+    .event-content input[type="text"] { margin: 0; padding: 0 15px; width:100%; height: 42px; font-weight: 300; font-size: 14px; border-radius: 4px; border: 0; background-color: #fff; box-sizing: border-box;
+      -webkit-appearance: none;
+    }
+    .event-content select { background: #fff url(./event/icon-select.png) no-repeat right 15px center / 9px 5px; }
+    .event-content input::placeholder { color: #000; }
+    .event-content input:focus::placeholder { color: #999; }
+
+    .event-content .event-headline { font-weight: 300; font-size: 18px; letter-spacing: -0.035em; }
+    .event-content .event-headline > b { font-weight: 600; color: #740829; }
+
+    .event-content .event-cards { margin-top: 32px; }
+    .event-content .event-cards .caption { font-weight: 300; font-size: 14px; line-height: 24px; }
+    .event-content .event-messeage { margin-top: 25px; }
+    .event-content .event-send { margin-top: 10px; }
+    .event-content .event-send > input { margin: 0; padding: 0 15px; width:100%; height: 42px; border-radius: 4px; border: 0; background-color: #fff; box-sizing: border-box; }
+    .event-content .event-send > input::placeholder { color: #000; }
+    .event-content .event-button-container { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1; }
+    .event-content .event-button-container > .el { width: 100%; height: 60px; font-size: 16px; color: #fff; border: 0; background-color: #630A2C; }
+
+    .event-content .swiper-container { margin: 5px -25px; padding: 0 25px; }
+    .event-content .swiper-slide { width: 100%; opacity: 0.5; overflow: hidden;
+      transform:scale(0.95);
+      transition: 1s cubic-bezier(0,1,0,1);
+    }
+    .event-content .swiper-slide > img { width:100%; vertical-align: top; }
+    .event-content .swiper-slide.swiper-slide-active { opacity: 1;
+      transform:scale(1);
+    }
+  </style>
+  <script>
+    $(function(){
+      var mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      });
+      $('#send_to').on('click',function(){
+        let card = mySwiper.activeIndex+1;
+        let messeage = $('.event-messeage > select option:selected').val();
+        if ( messeage == '' ) { alert('카드에 담을 메시지를 선택해주세요.'); return false; }
+        ( $('#send_from').val() == undefined || $('#send_from').val() == '' ) ? location.href='card.html?info='+card+','+messeage : location.href='card.html?info='+card+','+messeage+','+$('#send_from').val();
+      })
+    });
+  </script>
+  <div class="event-container">
+    <div class="event-thumb"><img src="./event/thumb_1.png" width="100%" alt=""></div>
+    <div class="event-content">
+      <div class="event-headline">
+        L.POINT 회원이라면<br>
+        <b>누구나 무료로 사용이 가능해요!</b>
+      </div>
+      <div class="event-cards">
+        <div class="caption">보내실 카드를 선택해주세요.</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./event/thumb_card_0.png" alt=""></div>
+            <div class="swiper-slide"><img src="./event/thumb_card_1.png" alt=""></div>
+            <div class="swiper-slide"><img src="./event/thumb_card_2.png" alt=""></div>
+            <div class="swiper-slide"><img src="./event/thumb_card_3.png" alt=""></div>
+            <div class="swiper-slide"><img src="./event/thumb_card_4.png" alt=""></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="event-messeage">
+        <select>
+          <option value="0" selected="selected" disabled="disabled">카드에 담을 메시지를 선택해주세요.</option>
+          <option value="1">새해 복 많이 받으세요</option>
+          <option value="2">고생했쥐, 행복하소!</option>
+          <option value="3">21년 행복을 배달왔소!</option>
+          <option value="4">새해에는 행운과 평안이 가득하기를 기원합니다</option>
+          <option value="5">새해에는 소망하는 일 모두 이루세요</option>
+          <option value="6">새해에도 좋은일만 가득하기를 기원합니다</option>
+          <option value="7">새해에도 웃음 가득한 한해 되세요</option>
+        </select>
+      </div>
+      <div class="event-send">
+        <input type="text" id="send_from" maxlength="8" placeholder="누구에게 보내는 카드인가요? (최대 8자)">
+      </div>
+      <div class="event-button-container">
+        <button type="button" class="el" id="send_to">마음 전하기</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
