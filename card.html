@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+  <title>엘포인트 앱을 통해서 ***님이 따뜻한 마음을 보냈어요.</title>
+  <meta name="title" content="엘포인트 앱을 통해서 ***님이 따뜻한 마음을 보냈어요.">
+  <meta name="description" content="누가 보냈는지 확인해볼까요?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://m.lpoint.com/upload/mobilecard.html">
+  <meta property="og:title" content="엘포인트 앱을 통해서 ***님이 따뜻한 마음을 보냈어요.">
+  <meta property="og:description" content="누가 보냈는지 확인해볼까요?">
+  <meta property="og:image" content="https://m.lpoint.com/upload/images/event/503167/thumb_card_'+(parseInt(info[0])-1)+'.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://m.lpoint.com/upload/mobilecard.html">
+  <meta property="twitter:title" content="엘포인트 앱을 통해서 ***님이 따뜻한 마음을 보냈어요.">
+  <meta property="twitter:description" content="누가 보냈는지 확인해볼까요?">
+  <meta property="twitter:image" content="https://m.lpoint.com/upload/images/event/503167/thumb_card_'+(parseInt(info[0])-1)+'.png">
+  <script src="https://unpkg.com/jquery"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;900&family=Yeon+Sung&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body { position: relative; background: #000 url(./images/bi-brand.png) no-repeat center bottom 20px / auto 14px;
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      justify-content: space-around;
+      -webkit-justify-content: space-around;
+      align-items: stretch;
+    }
+    body:before { content:''; position: absolute; left: 0; right: 0; top: 0; bottom: 0; border-bottom-left-radius: 32px; border-bottom-right-radius: 32px; z-index: -1;
+      transform: translateY(-60px);
+      -webkit-transform: translateY(-60px);
+    }
+    body.type-1 { color: #fff; }
+    body.type-1:before { background-color: #2B45CB; }
+    body.type-1 .card:nth-child(1) { display: block !important; }
+    body.type-2 { color: #333; }
+    body.type-2:before { background-color: #FFC600; }
+    body.type-2 .card:nth-child(2) { display: block !important; }
+    body.type-3 { color: #fff; }
+    body.type-3:before { background-color: #0C3A36; }
+    body.type-3 .card:nth-child(3) { display: block !important; }
+    body.type-4 { color: #fff; }
+    body.type-4:before { background-color: #009bfa; }
+    body.type-4 .card:nth-child(4) { display: block !important; }
+    body.type-5 { color: #444; }
+    body.type-5:before { background-color: #F2EDE4; }
+    body.type-5 .card:nth-child(5) { display: block !important; }
+    .hgroup { position: relative; margin: 0; padding: 0; font-family: 'Yeon Sung', cursive; white-space: nowrap; word-break: break-all; opacity: 0; z-index: 100;
+      animation: heading 1200ms linear forwards 400ms;
+    }
+    h1.hgroup { font-size: 32px; line-height:36px; letter-spacing: -0.035em; }
+    body.type-4 .card-container,
+    body.type-5 .card-container { position: relative; bottom: -90px; }
+    body.type-4 .card-container { animation:none; opacity: 1; }
+    body.type-4 .cards,
+    body.type-5 .cards { flex-grow:1; -webkit-flex-grow:1;
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+    body.type-4 .cards .card,
+    body.type-5 .cards .card {
+      flex-grow:1;
+    }
+    .button-container { margin-bottom:100px; text-align: center; opacity: 0; z-index: 10;
+      flex-grow:0;
+      -webkit-flex-grow:0;
+      animation: slideIn 1200ms linear forwards 800ms;
+    }
+    .button-container > .el { margin: 0; padding: 16px 32px; border: none; border-radius: 32px; background-color: rgba(255,255,255,0.75); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
+    .card-container { margin: 0 20px; text-align: center; box-sizing: border-box; overflow: hidden; opacity: 0;
+      flex-grow: 1;
+      -webkit-flex-grow: 1;
+      display: flex;
+      display: -webkit-flex;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      justify-content: center;
+      -webkit-justify-content: center;
+      animation: slideIn 1200ms ease-in-out forwards;
+    }
+    .card-container .card { position: relative; display: none; margin: 60px 0 0; }
+    .content img { width: 100%; }
+
+    /* type-1 */
+    .content-1-0 { width: 100%; }
+    .content-1-1 { position:absolute; bottom:25px; right:50%; margin-right:10px; width: 100px; height: 110px; }
+    .content-1-2 { position:absolute; bottom:25px; left:50%; margin-left:10px; width: 100px; height: 110px; }
+
+    /* type-2 */
+    .content-2-0 { position:relative; padding-top:30px; z-index: 1; }
+    .content-2-0 > img { width: 150px; height: 142px; }
+    .content-2-1 { position:absolute; top:45px; left:50%; margin-left:-40px; z-index:0 ;
+      animation: content-2-1 1s cubic-bezier(.68,-0.55,.27,1.55) forwards 1.2s;
+    }
+    .content-2-1 > img { width: 75px; height: 90px; }
+    .content-2-2 { position:absolute; top:25px; left:50%; margin-left:18px; width: 14px; height: 12px; opacity: 0; z-index: 1;
+      animation: content-2-2 1s cubic-bezier(.68,-0.55,.27,1.55) forwards 1s;
+    }
+    .content-2-2 > img { width: 14px; height: 12px; }
+
+    /* type-3 */
+    .content-3-0 { position:absolute; left: 50%; top: 50%; margin:-90px 0 0 -136px; z-index: 0; }
+    .content-3-0 > img { width: 269px; height: 174px; }
+    .content-3-1 { position:absolute; bottom: 0; left: 50%; margin:10px 0 0 -105px; z-index:0;
+      animation: content-3-1 20s linear infinite;
+
+    }
+    .content-3-1 > img { width: 67px; height: 67px; }
+    .content-3-2 { position:absolute; top: 0; left: 50%; margin:-10px 0 0 40px; z-index: 0;
+      animation: content-3-2 30s linear infinite;
+    }
+    .content-3-2 > img { width: 88px; height: 88px; }
+    .content-3-3 { position:relative; z-index: 1; }
+    .content-3-3 > img { width: 123px; height: 138px; }
+
+    /* type-4 */
+    .content-4-0 { position:absolute; left: -10px; bottom: 0; opacity: 0; z-index: 1;
+      animation: content-4-left 500ms ease-in-out forwards;
+    }
+    .content-4-0 > img { width: 77px; height: 86px; }
+    .content-4-1 { position:absolute; left: 0; bottom: 46px; opacity: 0; z-index: 0;
+      animation: content-4-left 500ms ease-in-out forwards 500ms;
+    }
+    .content-4-1 > img { width: 136px; height: 268px; }
+    .content-4-2 { position:absolute; right: -13px; bottom: 0; border-bottom-right-radius: 32px; opacity: 0; z-index: 2; overflow:hidden;
+      animation: content-4-right 500ms ease-in-out forwards 250ms;
+    }
+    .content-4-2 > img { width: 117px; height: 110px; }
+    .content-4-3 { position:absolute; right: -2px; bottom: 46px; opacity: 0; z-index: 1;
+      animation: content-4-right 500ms ease-in-out forwards 750ms;
+    }
+    .content-4-3 > img { width: 137px; height: 169px; }
+    .content-4-4 { position:absolute; right: 0; bottom: 164px; opacity: 0; z-index: 0;
+      animation: content-4-right 500ms ease-in-out forwards 1000ms;
+    }
+    .content-4-4 > img { width: 106px; height: 215px; }
+
+    /* type-5 */
+    .content-5-0 { position:absolute; left: 50%; bottom: 100px; margin-left: -150px; z-index: 2; }
+    .content-5-0 > img { width: 300px; height: 180px; }
+    .content-5-1 { position:absolute; left: 50%; bottom: 230px; margin-left:-140px; z-index: 1; }
+    .content-5-1 > img { width: 280px; height: 132px; }
+    .content-5-2 { position:absolute; left: 0; right: 0; bottom: 0; border-bottom-left-radius: 32px; border-bottom-right-radius: 32px; z-index: 0; overflow:hidden; }
+    .content-5-2 > img { width: 100%; vertical-align: bottom; }
+
+
+    @keyframes heading {
+      0% {
+        transform: translateY(20px);
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideIn {
+      100% {
+        transform:translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes content-2-1 {
+      100% {
+        transform:translateY(-75px);
+        opacity: 1;
+      }
+    }
+    @keyframes content-2-2 {
+      0% {
+        transform:scale(0.5) translateY(-4px);
+      }
+      100% {
+        transform:scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes content-3-1 {
+      0% {
+        transform:rotate(0);
+      }
+      100% {
+        transform:rotate(360deg);
+      }
+    }
+    @keyframes content-3-2 {
+      0% {
+        transform:rotate(0);
+      }
+      100% {
+        transform:rotate(-360deg);
+      }
+    }
+    @keyframes content-4-left {
+      0% {
+        transform:translateX(-20px);
+        filter:blur(20px);
+      }
+      100% {
+        transform:translateX(0);
+        filter:blur(0);
+        opacity: 1;
+      }
+    }
+    @keyframes content-4-right {
+      0% {
+        transform:translateX(20px);
+        filter:blur(20px);
+      }
+      100% {
+        transform:translateX(0);
+        filter:blur(0);
+        opacity: 1;
+      }
+    }
+
+    @media screen and (min-width:400px){
+      .card-container { margin:0 auto; max-width:360px; }
+      h1.hgroup { font-size:36px; line-height:44px; }
+    }
+  </style>
+  <script>
+		let comments = [
+      "새해 복 많이 받으세요",
+      "고생했쥐, 행복하소!",
+      "21년 행복을 배달왔소!",
+      "새해에는 행운과 평안이<br>가득하기를 기원합니다",
+      "새해에는 소망하는 일<br>모두 이루세요",
+      "새해에도 좋은일만<br>가득하기를 기원합니다.",
+      "새해에도 웃음 가득한<br>한해 되세요"
+    ]
+    $(function(){
+      //let info = ( location.href.search('info=') == -1 ) ? location.href='https://mobile.lpoint.com/app/common/AMZZ300400.do?type=event&evnId=EVN503167' : location.href.split('info=');
+      let info = location.href.split('info=');
+          info = info[1].split(',');
+      // 카드 설정
+      $('body').addClass('type-'+info[0]);
+
+      // 메시지 설정
+      comments = comments[parseInt(info[1])+1];
+      $('.hgroup').html(comments);
+
+      // 답장 설정
+      if( info.length > 2 ) {
+        $('#recall').html(decodeURIComponent(info[2])+'님에게 답장 보내기');
+      }
+		});
+	</script>
+</head>
+<body>
+  <div class="card-container">
+    <h1 class="hgroup">고생했쥐,<br>행복하소!</h1>
+    <div class="cards">
+      <div class="card">
+        <div class="content content-1-0"><img src="./images/card-1-0.png" alt=""></div>
+        <div class="content content-1-1"><img src="./images/card-1-1.png" alt=""></div>
+        <div class="content content-1-2"><img src="./images/card-1-2.png" alt=""></div>
+      </div>
+      <div class="card">
+        <div class="content content-2-0"><img src="./images/card-2-0.png" alt=""></div>
+        <div class="content content-2-1"><img src="./images/card-2-1.png" alt=""></div>
+        <div class="content content-2-2"><img src="./images/card-2-2.png" alt=""></div>
+      </div>
+      <div class="card">
+        <div class="content content-3-0"><img src="./images/card-3-0.png" alt=""></div>
+        <div class="content content-3-1"><img src="./images/card-3-1.png" alt=""></div>
+        <div class="content content-3-2"><img src="./images/card-3-2.png" alt=""></div>
+        <div class="content content-3-3"><img src="./images/card-3-3.png" alt=""></div>
+      </div>
+      <div class="card">
+        <div class="content content-4-0"><img src="./images/card-4-0.png" alt=""></div>
+        <div class="content content-4-1"><img src="./images/card-4-1.png" alt=""></div>
+        <div class="content content-4-2"><img src="./images/card-4-2.png" alt=""></div>
+        <div class="content content-4-3"><img src="./images/card-4-3.png" alt=""></div>
+        <div class="content content-4-4"><img src="./images/card-4-4.png" alt=""></div>
+      </div>
+      <div class="card">
+        <div class="content content-5-0"><img src="./images/card-5-0.png" alt=""></div>
+        <div class="content content-5-1"><img src="./images/card-5-1.png" alt=""></div>
+        <div class="content content-5-2"><img src="./images/card-5-2.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button type="button" class="el" id="recall" onclick="location.href='https://mobile.lpoint.com/app/common/AMZZ300400.do?type=event&evnId=EVN503167';">답장 보내기</button>
+  </div>
+</body>
+</html>
